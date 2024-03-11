@@ -1,0 +1,18 @@
+{
+  "name": "matomo-uniapp",
+  "version": "1.0.0",
+  "description": "Matomo Plugin for UniApp",
+  "main": "plugin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "matomo",
+    "uniapp"
+  ],
+  "author": "William Zhao",
+  "license": "MIT",
+  "dependencies": {
+    "js-sha1": "^0.7.0"
+  }
+}
