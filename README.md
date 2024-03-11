@@ -12,13 +12,20 @@ npm install matomo-uniapp
 ### Usage
 
 ```javascript
-import Matomo from 'matomo-uniapp';
+import App from './App'
+import Matomo from 'matomo-uniapp'
 
-const matomo = new Matomo({
+Vue.use(Matomo, {
   url: 'https://your-matomo-instance.com',
   siteId: 1,
-});
+})
 
+const app = new Vue({
+  ...App
+})
+app.$mount()
+
+//When the user logs in, set the user ID.
 matomo.setUserId('example-user-id');
 ```
 
