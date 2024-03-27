@@ -1,6 +1,6 @@
 {
   "name": "matomo-uniapp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Matomo Plugin for UniApp",
   "main": "plugin.js",
   "scripts": {
