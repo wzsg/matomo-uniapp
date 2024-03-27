@@ -3,7 +3,7 @@ import sha1 from 'js-sha1'
 const Matomo = {
     install(Vue, options) {
         const pluginName = "MatomoUniApp";
-        const pluginVersion = "v1.0.0";
+        const pluginVersion = "v1.0.4";
         if (uni===undefined || !uni) {
             console.log(`${pluginName} ${pluginVersion} install fail - Not in UniApp`)
             return
@@ -31,17 +31,15 @@ const Matomo = {
         });
 
         this.uid = null;
-        // #ifndef VUE3  vue2
-        Vue.prototype.$setUid = function (uid) {
-            _this.uid = uid;
+        if(Vue.version.startsWith('2.')) { // vue2
+            Vue.prototype.$setUid = function (uid) {
+                _this.uid = uid;
+            }
+        } else if(Vue.version.startsWith('3.')) {// vue3
+            Vue.config.globalProperties.$setUid = uid => {
+                _this.uid = uid;
+            }
         }
-		// #endif
-		// #ifdef VUE3  vue3
-		Vue.config.globalProperties.$setUid = uid => {
-            _this.uid = uid;
-		}
-		// #endif
-
         this.trackPageView = (options) => {
             //console.log("MatomoPlugin trackPageView", options)
             const postData = {
