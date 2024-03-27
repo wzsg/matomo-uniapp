@@ -31,9 +31,16 @@ const Matomo = {
         });
 
         this.uid = null;
+        // #ifndef VUE3  vue2
         Vue.prototype.$setUid = function (uid) {
             _this.uid = uid;
         }
+		// #endif
+		// #ifdef VUE3  vue3
+		Vue.config.globalProperties.$setUid = uid => {
+            _this.uid = uid;
+		}
+		// #endif
 
         this.trackPageView = (options) => {
             //console.log("MatomoPlugin trackPageView", options)
