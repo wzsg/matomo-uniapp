@@ -3,7 +3,7 @@ import sha1 from 'js-sha1'
 const Matomo = {
     install(Vue, options) {
         const pluginName = "MatomoUniApp";
-        const pluginVersion = "v1.0.1";
+        const pluginVersion = "v1.0.3";
         if (uni===undefined || !uni) {
             console.log(`${pluginName} ${pluginVersion} install fail - Not in UniApp`)
             return
